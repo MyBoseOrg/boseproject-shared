@@ -3,11 +3,12 @@ pipeline{
   agent any 
   tools { maven 'maven'}
   stages{
-    stage('git-clone'){
-      steps{
-         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-check', url: 'https://github.com/MyBoseOrg/module2_ci']]])
-      }
-    }
+    stage("Checkout Code") {
+               steps {
+                   git branch: 'main',
+                       url: "${repoUrl}"
+               }
+           }
     stage('etech-hello'){
       steps{
   sh 'git version'
