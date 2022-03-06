@@ -1,0 +1,2 @@
+# boseproject-shared
+my project
